@@ -1,0 +1,27 @@
+// Screenshot a set of named states. usage: node scripts/states.mjs <url> <outDir> <w> <h> [dpr] [touch]
+import { createRequire } from 'node:module'
+import fs from 'node:fs'
+const require = createRequire(process.env.GLOBAL_NODE_MODULES ? process.env.GLOBAL_NODE_MODULES + '/' : import.meta.url)
+const { chromium } = require('playwright')
+const [url, outDir, w = '1440', h = '900', dpr = '1', touch = ''] = process.argv.slice(2)
+fs.mkdirSync(outDir, { recursive: true })
+const browser = await chromium.launch({ headless: true, args: ['--enable-gpu', '--use-angle=d3d11', '--ignore-gpu-blocklist'] })
+const ctx = await browser.newContext({ viewport: { width: +w, height: +h }, deviceScaleFactor: +dpr, hasTouch: !!touch, isMobile: !!touch })
+const page = await ctx.newPage()
+page.on('pageerror', (e) => console.log('pageerror', e.message))
+await page.goto(url, { waitUntil: 'load' })
+await page.waitForFunction(() => window.__vessels?.store?.get().model && window.__vessels.stats?.fps > 0, null, { timeout: 120000 })
+await page.waitForFunction(() => { const s = window.__vessels.store.get(); return !s.intro && !s.growing }, null, { timeout: 60000 })
+const shot = async (name, ms = 1800) => { await page.waitForTimeout(ms); await page.screenshot({ path: `${outDir}/${name}.png` }) }
+const sel = (id) => page.evaluate((id) => { const v = window.__vessels; const p = v.partsById.get(id); v.store.set((s) => ({ selected: { layer: p.layer, index: p.index }, layers: { ...s.layers, [p.layer]: true } })) }, id)
+await page.evaluate(() => window.__vessels.store.set({ paused: false }))
+await shot('01-default', 800)
+await sel('heart'); await shot('02-heart', 2600)
+await page.evaluate(() => window.__vessels.store.set({ selected: null })); await page.evaluate(() => window.__vessels.home())
+await page.evaluate(() => window.__vessels.store.set((s) => ({ layers: { ...s.layers, skeleton: true } }))); await shot('03-skeleton', 2600)
+await sel('right-kidney'); await shot('04-kidney', 2600)
+await page.evaluate(() => window.__vessels.store.set({ selected: null, layers: { skin: true, skeleton: false, organs: true, arteries: true, veins: true } })); await page.evaluate(() => window.__vessels.home())
+await page.evaluate(() => window.__vessels.store.set({ section: { on: true, axis: 'y', t: 0.66 } })); await shot('05-cut', 2800)
+await page.evaluate(() => window.__vessels.store.set({ section: { on: false, axis: 'y', t: 0.5 } }))
+await sel('brain'); await shot('06-brain', 2600)
+await browser.close()

@@ -1,0 +1,23 @@
+baseline: green (65 passed)
+RED    src/lib/volume.ts: voxel index axes swapped -> 10 failing, first: label volume has bone voxels the vessels must avoid, and refuses to place a node in one
+RED    src/lib/volume.ts: run-length varint decoded wrongly -> 1 failing, first: label volume decodes runs longer than 127 voxels (multi byte lengths)
+RED    src/lib/volume.ts: chamfer weights flattened -> 1 failing, first: label volume chamfer distance weighs face, edge and corner neighbours 3, 4 and 5
+RED    src/lib/volume.ts: vessels may enter bone -> 1 failing, first: label volume has bone voxels the vessels must avoid, and refuses to place a node in one
+RED    src/lib/murray.ts: Murray's exponent wrong -> 1 failing, first: Murray's law gives every grown leaf the leaf radius of the tier
+RED    src/lib/murray.ts: subtree may be thicker than the atlas vessel -> 2 failing, first: Murray's law artery: r^3 of a grown node equals the sum of its children r^3, and no child is thicker than its parent
+RED    src/lib/wave.ts: venous wave runs outward -> 2 failing, first: pulse wave vein: wave coordinate runs the right way along every path
+RED    src/lib/wave.ts: venous wave starts before the arterial one ends -> 1 failing, first: pulse wave starts the venous wave after the longest arterial path of its circuit
+RED    src/lib/colonization.ts: attractors are never consumed -> 4 failing, first: colonization artery: every attractor is consumed, abandoned or reported unreached, and nearly all are consumed
+RED    src/lib/generate.ts: branches may leave an organ -> 4 failing, first: colonization artery: a branch that entered an organ never leaves it
+RED    src/lib/generate.ts: no pruning of stubs -> 4 failing, first: colonization artery: parents come before children and no twig is shorter than the pruning length
+RED    src/lib/generate.ts: segment end radius packed from the wrong node -> 1 failing, first: instanced segments packs parent and child positions, radii and organ labels, one segment per non-root node
+RED    src/lib/generate.ts: no organ labels on vessel nodes -> 1 failing, first: instanced segments grows vessels into every organ
+RED    src/lib/anatomy.ts: renal vessels credited to the lung -> 1 failing, first: naming and tiers maps supply vessels to the organ they feed
+RED    src/lib/tiers.ts: phones get the heavy tier -> 1 failing, first: naming and tiers picks the light tier on a phone and the full tier on a desktop
+RED    src/lib/generate.ts: tube rings no longer match at the joints (visible seams) -> 1 failing, first: tube joints shares the end tangent between a segment and its continuation, and keeps every tangent a unit vector
+RED    src/lib/generate.ts: side branches flare out of the parent as cones -> 1 failing, first: twig roots a side branch starts at its own radius instead of flaring out of the parent as a cone
+RED    src/lib/tiers.ts: the light tier supersamples too -> 1 failing, first: naming and tiers supersamples the full tier on a normal window, within a pixel budget, and never the light tier
+RED    src/lib/tiers.ts: supersampling ignores the pixel budget -> 1 failing, first: naming and tiers supersamples the full tier on a normal window, within a pixel budget, and never the light tier
+RED    src/lib/wave.ts: pulse without an upstroke -> 1 failing, first: pulse wave has a sharp upstroke and a slow decay
+after restore: green (65 passed)
+20 mutations, all caught: true

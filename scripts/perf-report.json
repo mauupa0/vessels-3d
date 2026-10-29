@@ -1,0 +1,80 @@
+{
+ "machine": "AMD Ryzen 5 7600X 6-Core Processor",
+ "gpu": "ANGLE (AMD, AMD Radeon RX 6950 XT (0x000073A5) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+ "measuredWith": "headless Chromium, real GPU through ANGLE d3d11, vsync on, production build",
+ "columns": [
+  {
+   "label": "Desktop",
+   "viewport": "1440 x 900",
+   "tier": "full",
+   "gpu": "ANGLE (AMD, AMD Radeon RX 6950 XT (0x000073A5) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+   "fps": 60.2,
+   "frameMs": 16.6,
+   "drawCalls": 38,
+   "triangles": 1716085,
+   "pixelRatio": 1.5,
+   "gpuMsMedian": 5.17,
+   "gpuMsP95": 11.66,
+   "gpuSamples": 720,
+   "renderLoopMsPerFrame": 0.24,
+   "mainThreadMsPerFrame": 0.02,
+   "scriptMsPerFrame": 0.02,
+   "framesIdlePaused": 0,
+   "generationMs": 1674,
+   "workerTotalMs": 1717,
+   "segments": 86565,
+   "readyMs": 1909,
+   "errors": [],
+   "gpuMsP95Runs": [
+    11.52,
+    11.66,
+    11.68
+   ],
+   "gpuMsMedianRuns": [
+    5.19,
+    5.17,
+    5.2
+   ]
+  },
+  {
+   "label": "Phone",
+   "viewport": "360 x 740 @2x, CPU 4x slower",
+   "tier": "light",
+   "gpu": "ANGLE (AMD, AMD Radeon RX 6950 XT (0x000073A5) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+   "fps": 59.9,
+   "frameMs": 16.7,
+   "drawCalls": 9,
+   "triangles": 773675,
+   "pixelRatio": 1.5,
+   "gpuMsMedian": 0.74,
+   "gpuMsP95": 3.78,
+   "gpuSamples": 720,
+   "renderLoopMsPerFrame": 0.56,
+   "mainThreadMsPerFrame": 2.02,
+   "scriptMsPerFrame": 1.4,
+   "framesIdlePaused": 0,
+   "generationMs": 497,
+   "workerTotalMs": 528,
+   "segments": 43896,
+   "readyMs": 1876,
+   "errors": [],
+   "gpuMsP95Runs": [
+    3.74,
+    3.78,
+    3.82
+   ],
+   "gpuMsMedianRuns": [
+    0.79,
+    0.74,
+    0.79
+   ]
+  }
+ ],
+ "bytes": {
+  "js": 511997,
+  "worker": 7436,
+  "css": 4938,
+  "glb": 1461840,
+  "data": 1111922
+ }
+}

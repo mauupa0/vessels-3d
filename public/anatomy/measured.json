@@ -1,0 +1,48 @@
+{
+ "machine": "AMD Ryzen 5 7600X 6-Core Processor",
+ "gpu": "ANGLE (AMD, AMD Radeon RX 6950 XT (0x000073A5) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+ "measuredWith": "headless Chromium, real GPU through ANGLE d3d11, vsync on, production build",
+ "columns": [
+  {
+   "label": "Desktop",
+   "viewport": "1440 x 900",
+   "fps": 60.2,
+   "frameMs": 16.6,
+   "drawCalls": 38,
+   "triangles": 1716085,
+   "generationMs": 1674,
+   "renderLoopMsPerFrame": 0.24,
+   "gpuMsMedian": 5.17,
+   "gpuMsP95": 11.66,
+   "gpuMsP95Runs": [
+    11.52,
+    11.66,
+    11.68
+   ]
+  },
+  {
+   "label": "Phone",
+   "viewport": "360 x 740 @2x, CPU 4x slower",
+   "fps": 59.9,
+   "frameMs": 16.7,
+   "drawCalls": 9,
+   "triangles": 773675,
+   "generationMs": 497,
+   "renderLoopMsPerFrame": 0.56,
+   "gpuMsMedian": 0.74,
+   "gpuMsP95": 3.78,
+   "gpuMsP95Runs": [
+    3.74,
+    3.78,
+    3.82
+   ]
+  }
+ ],
+ "bytes": {
+  "js": 511997,
+  "worker": 7436,
+  "css": 4938,
+  "glb": 1461840,
+  "data": 1111922
+ }
+}

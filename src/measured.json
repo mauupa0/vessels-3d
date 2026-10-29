@@ -1,0 +1,95 @@
+{
+  "desktop": {
+    "fps": 60.2,
+    "genMs": 979
+  },
+  "phone": {
+    "fps": 59.9,
+    "frameMs": 1,
+    "genMs": 229
+  },
+  "bundle": {
+    "appGzipKb": 65,
+    "sceneGzipKb": 242,
+    "appKb": 205,
+    "sceneKb": 897
+  },
+  "note": "The phone profile is a 360 px touch viewport with 4x CPU throttle on the author's desktop GPU. The throttle does not slow the generation worker, so generation time on a real phone and real phone GPUs were not measured.",
+  "raw": [
+    {
+      "name": "desktop 1440x900 dpr1",
+      "tier": "full",
+      "segments": 28381,
+      "genMs": 979,
+      "readyMs": 1693,
+      "fpsMedian": 60.2,
+      "fpsMin": 59.5,
+      "drawCalls": 5,
+      "pixelRatio": 1,
+      "mainThreadMsPerFrame": 0.2,
+      "scriptMsPerFrame": 0.1,
+      "windowSeconds": 6.4,
+      "beatsInWindow": 8
+    },
+    {
+      "name": "desktop 1440x900 dpr2",
+      "tier": "full",
+      "segments": 28381,
+      "genMs": 1044,
+      "readyMs": 1740,
+      "fpsMedian": 60.2,
+      "fpsMin": 59.9,
+      "drawCalls": 5,
+      "pixelRatio": 2,
+      "mainThreadMsPerFrame": 0.3,
+      "scriptMsPerFrame": 0.1,
+      "windowSeconds": 6.3,
+      "beatsInWindow": 8
+    },
+    {
+      "name": "phone 360x740 dpr2, no throttle (auto tier)",
+      "tier": "light",
+      "segments": 5573,
+      "genMs": 235,
+      "readyMs": 918,
+      "fpsMedian": 60.2,
+      "fpsMin": 59.9,
+      "drawCalls": 5,
+      "pixelRatio": 1.5,
+      "mainThreadMsPerFrame": 0.2,
+      "scriptMsPerFrame": 0.1,
+      "windowSeconds": 6.4,
+      "beatsInWindow": 8
+    },
+    {
+      "name": "phone 360x740 dpr2, 4x CPU throttle (auto tier)",
+      "tier": "light",
+      "segments": 5573,
+      "genMs": 229,
+      "readyMs": 1297,
+      "fpsMedian": 59.9,
+      "fpsMin": 59.9,
+      "drawCalls": 5,
+      "pixelRatio": 1.5,
+      "mainThreadMsPerFrame": 1,
+      "scriptMsPerFrame": 0.6,
+      "windowSeconds": 6.4,
+      "beatsInWindow": 8
+    },
+    {
+      "name": "phone 360x740 dpr2, 4x CPU throttle, forced full tier",
+      "tier": "full",
+      "segments": 28381,
+      "genMs": 1158,
+      "readyMs": 2227,
+      "fpsMedian": 60.2,
+      "fpsMin": 59.9,
+      "drawCalls": 5,
+      "pixelRatio": 2,
+      "mainThreadMsPerFrame": 1.1,
+      "scriptMsPerFrame": 0.6,
+      "windowSeconds": 6.4,
+      "beatsInWindow": 8
+    }
+  ]
+}

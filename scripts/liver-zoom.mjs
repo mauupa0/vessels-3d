@@ -1,0 +1,15 @@
+// 3x crop of the liver trunks. usage: node scripts/liver-zoom.mjs <baseUrl> <out.png>
+import { createRequire } from 'node:module'
+const require = createRequire(process.env.GLOBAL_NODE_MODULES ? process.env.GLOBAL_NODE_MODULES + '/' : import.meta.url)
+const { chromium } = require('playwright')
+const [base, out] = process.argv.slice(2)
+const browser = await chromium.launch({ headless: true, args: ['--enable-gpu', '--use-angle=d3d11', '--ignore-gpu-blocklist'] })
+const page = await (await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 3 })).newPage()
+await page.goto(base, { waitUntil: 'load' })
+await page.waitForFunction(() => window.__vessels?.store?.get().model && window.__vessels.stats?.fps > 0, null, { timeout: 180000 })
+await page.waitForFunction(() => { const s = window.__vessels.store.get(); return !s.intro && !s.growing }, null, { timeout: 60000 })
+await page.waitForTimeout(1200)
+await page.locator('.organ', { hasText: 'Liver' }).click()
+await page.waitForTimeout(4500)
+await page.screenshot({ path: out, clip: { x: 560, y: 230, width: 300, height: 260 } })
+await browser.close()

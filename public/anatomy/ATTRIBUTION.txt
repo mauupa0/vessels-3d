@@ -1,0 +1,20 @@
+Anatomy data used by Vessels
+=============================
+
+BodyParts3D (skin, kidneys, small intestine, brain and the 120 registration bones)
+  (c) The Database Center for Life Science (DBCLS), Okubo K. et al.
+  https://dbarchive.biosciencedbc.jp/en/bodyparts3d/
+  The database page states CC BY 4.0. The OBJ files themselves still carry the older note CC BY-SA 2.1 Japan.
+
+Z-Anatomy (skeleton, cartilage, intervertebral discs, heart, lungs, liver, stomach, spleen, pancreas, colon, bladder, trachea, adrenal glands, and 654 vessel centerlines with radii)
+  Z-Anatomy, The libre 3D atlas of anatomy, CC BY-SA 4.0
+  https://github.com/Z-Anatomy/Models-of-human-anatomy
+  Z-Anatomy itself derives from BodyParts3D.
+  Not used on purpose: the items Z-Anatomy lists with non-commercial licences (kidney, inner ear, Brainder brain and white matter).
+
+What was changed: the meshes were registered into one frame, smoothed and simplified, merged per layer, and compressed
+(meshopt). The skin was edited in the groin region. Vessel centerlines were resampled and joined into rooted trees; the
+intrarenal curves were dropped and are regrown by the algorithm.
+
+The files in this folder are derived works and are distributed under Creative Commons Attribution-ShareAlike 4.0
+International (https://creativecommons.org/licenses/by-sa/4.0/). Credit the two atlases above when you reuse them.
